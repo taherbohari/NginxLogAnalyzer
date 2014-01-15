@@ -1,0 +1,48 @@
+﻿<Window x:Class="WindowBasedLogParser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WindowBasedLogParser"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Title="Log Analyzer" SizeToContent="WidthAndHeight" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+
+        <xctk:WatermarkTextBox x:Name="inputFileTextBox" Watermark="Enter full path of an access log file" 
+                               Style="{StaticResource TextBoxStyle}"
+                               BorderBrush="Black" BorderThickness="1,0,1,1">
+
+        </xctk:WatermarkTextBox>
+
+        <Button x:Name="selectInputFileButton" Grid.Column="1"
+                Content="Browse Input File" Style="{StaticResource ButtonStyle}"
+                Click="BrowseInputFileClicked"
+                >
+        </Button>
+
+        <xctk:WatermarkTextBox x:Name="outputFileTextBox" Watermark="Enter full path output file(*.csv)" 
+                               Style="{StaticResource TextBoxStyle}"
+                               Grid.Row="1" Grid.Column="0" BorderThickness="1,0,1,1" BorderBrush="Black">
+        </xctk:WatermarkTextBox>
+
+        <Button x:Name="selectOutputFileButton" Grid.Column="1" Grid.Row="1" Style="{StaticResource ButtonStyle}"
+                Content="Browse Output File" 
+                Click="BrowseOutputFileClicked"
+                >
+
+        </Button>
+
+        <Button x:Name="okButton" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource ButtonStyle}"
+                Content="OK" Click="OkButtonClicked">
+
+        </Button>
+    </Grid>
+</Window>
